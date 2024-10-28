@@ -1,21 +1,21 @@
-import {View, Text, Image, ImageBackground } from 'react-native';
+import {View, Text, Image, ImageBackground , ScrollView} from 'react-native';
 const LogoImg = require("./assets/adaptive-icon.png")
 export default function App(){
   return(
-  <View style={{flex: 1,backgroundColor:"plum", padding: 60}} >
-    
-      {/* <Text>
-      <Text style={{ color : "white" }} >  hello</Text> word
-      </Text> 
+    <View style={{flex: 1,backgroundColor:"plum", padding: 60}}> 
+  <ScrollView  >
       <Image source={LogoImg} style={{width:300, height:300}} />
-      <Image source={{uri : "https://picsum.photos/200/300/?blur"}} style={{width:300, height:300}} /> */}
-
-      <ImageBackground source={LogoImg} style={{flex :1 }} >
-        <Text>
-          hello word 
-        </Text>
-      </ImageBackground>
-
+      <Text>
+      Bien sûr ! Voici un texte *Lorem Ipsum* pour vos besoins de mise en page :
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor ncididuntut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laboCe texte factice est utilisé couramment 
+      pour tester la présentation et le design des documents sans être distrait par le contenu.
+      </Text>
+      <Image source={LogoImg} style={{width:300, height:300}} />
+  </ScrollView>
   </View>
 );
 }
