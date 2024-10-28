@@ -1,24 +1,23 @@
-import {View, Button, Image,Text,Pressable } from 'react-native';
+import {useState} from 'react';
+import {View, Button,Text,Modal } from 'react-native';
+
 const LogoImg = require("./assets/adaptive-icon.png")
 export default function App(){
+  const[ isModalVisible, setIsModalVisible ] = useState(false)
   return(
     <View style={{flex: 1,backgroundColor:"plum", padding: 60}}> 
-     <Button title="press" onPress={()=> console.log("bonjour mes amis")} color="black"/> 
-     <Pressable onPress={() => console.log("image pressed")} > 
-     <Image source={LogoImg} style={{width:300, height:300}} />
-     </Pressable>
-     <Pressable onLongPress={() => console.log(" texte longpressed")} >
-     <Text>
-      Bien sûr ! Voici un texte *Lorem Ipsum* pour vos besoins de mise en page :
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor ncididuntut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laboCe texte factice est utilisé couramment 
-      pour tester la présentation et le design des documents sans être distrait par le contenu.
-      </Text>
-      </Pressable>
- 
+     <Button title="press" onPress={()=> setIsModalVisible(true)} color="black"
+     />
+      <Modal visible={isModalVisible} animationType="slide" presentationStyle='pageSheet' onRequestClose={() => setIsModalVisible(false)} > 
+
+        <View style={{flex: 1,backgroundColor:"lightblue", padding : 60}}> 
+        <Text> Modal content </Text>
+        <Button title="close" color= "red" onPress={() => setIsModalVisible(false)} />
+        </View>
+      </Modal>
   </View>
-);
+); 
 }
+//  onRequestClose={() => setIsModalVisible(false)} est une propriété couramment utilisée avec le composant <Modal>.
+//  Elle est déclenchée lorsque l'utilisateur essaie de fermer le modal de manière native, par exemple en appuyant en dehors 
+//  du modal ou en utilisant le bouton de retour sur les appareils Android.
