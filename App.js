@@ -1,20 +1,17 @@
-import {useState} from 'react';
-import {View, Button,Text,Modal } from 'react-native';
+import {View,StatusBar,ActivityIndicator } from 'react-native';
 
 const LogoImg = require("./assets/adaptive-icon.png")
 export default function App(){
-  const[ isModalVisible, setIsModalVisible ] = useState(false)
   return(
     <View style={{flex: 1,backgroundColor:"plum", padding: 60}}> 
-     <Button title="press" onPress={()=> setIsModalVisible(true)} color="black"
-     />
-      <Modal visible={isModalVisible} animationType="slide" presentationStyle='pageSheet' onRequestClose={() => setIsModalVisible(false)} > 
+   {/* <StatusBar  backgroundColor="green" barStyle= "dark-content" /> */}
+   <ActivityIndicator />
+   <ActivityIndicator  size="large"/>
+   <ActivityIndicator size="large" color="red" />
+   <ActivityIndicator size="large" color="red" animating={true} />
 
-        <View style={{flex: 1,backgroundColor:"lightblue", padding : 60}}> 
-        <Text> Modal content </Text>
-        <Button title="close" color= "red" onPress={() => setIsModalVisible(false)} />
-        </View>
-      </Modal>
+
+
   </View>
 ); 
 }
